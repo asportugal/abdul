@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>ABDUL.HTML</title>
+<style>
+	#abdul {
+		margin: 20px auto;
+	}
+	
+	#abdul > span {
+		font: 20px arial, sans-serif;
+		font-weight: bold;
+	}
+</style>
+</head>
+<body>
+<div id="abdul">
+	<span id="up">8==w=D</span>
+	<span id="down" style="display: none">8=w==D</span>
+	<span id="cum1" style="display: none">~</span>
+	<span id="cum2" style="display: none">~</span>
+</div>
+<script>
+
+	var counter = 0;
+	var jerk_to_cum = 5;
+	var movement = 300;
+	
+	var up = document.getElementById('up');
+	var down = document.getElementById('down');
+	var cum1 = document.getElementById('cum1');
+	var cum2 = document.getElementById('cum2');
+	
+	setInterval(function(){
+		counter++;
+		
+		if(counter == jerk_to_cum) {
+			cum1.style.display = '';
+		}
+		
+		if(counter > jerk_to_cum) {
+			cum2.style.display = '';
+		}
+		
+		if(up.style.display == '') {
+			up.style.display = 'none';
+			down.style.display = '';
+		} else {
+			up.style.display = '';
+			down.style.display = 'none';
+		}
+		
+	}, movement);
+	
+	setInterval(function(){
+		
+		if(counter > jerk_to_cum + 1) {
+			counter = 0;
+			cum1.style.display = 'none';
+			cum2.style.display = 'none';
+		}
+		
+	}, movement);
+	
+</script>
+</body>
+</html>
